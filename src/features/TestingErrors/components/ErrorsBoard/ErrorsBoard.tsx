@@ -1,19 +1,21 @@
 import * as React from 'react';
 
-import { Kanban, KanbanBoard, KanbanType } from 'src/common/controls/KanbanBoard';
-import { FakeErrors } from 'src/common/fakeData/errors';
+import { KanbanBoard } from 'src/common/controls/KanbanBoard';
 
-import { ErrorStatus, TestingError } from 'src/common/types';
+import { TestingError } from 'src/common/types';
 
-import { getNewErrors, getOpenedErrors, getSolvedErrors } from './utils';
+import { errorToKanban, getNewErrors, getOpenedErrors, getSolvedErrors } from './utils';
 
 import './ErrorsBoard.styles.scss'
 
 interface Props {
   errors: TestingError[];
+  onErrorSelected: (errorId: string) => void;
 }
 
 export const ErrorsBoard = (props: Props) => {
+  const { errors, onErrorSelected } = props;
+
   return (
     <div className={'errorsBoard'}>
       <KanbanBoard
@@ -21,53 +23,23 @@ export const ErrorsBoard = (props: Props) => {
           {
             key: 'newErrors',
             title: 'New',
-            kanbans: getNewErrors(FakeErrors).map(errorToKanban)
+            kanbans: getNewErrors(errors).map(errorToKanban)
           },
           {
             key: 'openedErrors',
             title: 'Opened',
-            kanbans: getOpenedErrors(FakeErrors).map(errorToKanban)
+            kanbans: getOpenedErrors(errors).map(errorToKanban)
           },
           {
             key: 'solvedErrors',
             title: 'Solved',
-            kanbans: getSolvedErrors(FakeErrors).map(errorToKanban),
+            kanbans: getSolvedErrors(errors).map(errorToKanban),
           }
         ]}
+        onKanbanClick={(kanban) => {
+          onErrorSelected(kanban.key)
+        }}
       />
     </div>
   )
-}
-
-
-interface ErrorKanbanProps {
-  error: TestingError;
-}
-
-export const ErrorKanban = (props: ErrorKanbanProps) => {
-  const { error } = props;
-
-  return (
-    <div>
-      {error.shortDescription}
-    </div>
-  )
-}
-
-export const errorToKanban = (error: TestingError): Kanban => {
-  return {
-    key: error.id,
-    title: error.fullDescription,
-    description: error.shortDescription,
-    type: errorStatusToKanbanType(error.status)
-  }
-}
-
-export const errorStatusToKanbanType = (errorStatus: ErrorStatus): KanbanType => {
-  switch (errorStatus) {
-    case ErrorStatus.new: return KanbanType.warning;
-    case ErrorStatus.open: return KanbanType.common;
-    case ErrorStatus.solved: return KanbanType.warning;
-    case ErrorStatus.closed: return KanbanType.common;
-  }
 }

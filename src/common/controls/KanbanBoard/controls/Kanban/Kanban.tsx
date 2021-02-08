@@ -7,13 +7,17 @@ const theme = getTheme();
 
 interface Props {
   kanban: KanbanElement;
+  onClick: () => void;
 }
 
 export const Kanban = (props: Props) => {
-  const { kanban } = props;
+  const { kanban, onClick } = props;
 
   return (
-    <div className={'kanban'}>
+    <div
+      className={'kanban'}
+      onClick={onClick}
+    >
       <div
         className={'kanban-title'}
         style={{ color: theme.palette.themeDark }}

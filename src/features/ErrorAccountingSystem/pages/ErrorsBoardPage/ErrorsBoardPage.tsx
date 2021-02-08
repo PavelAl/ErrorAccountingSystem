@@ -1,13 +1,22 @@
 import * as React from 'react';
+import { useHistory } from 'react-router-dom';
+import { FakeErrors } from 'src/common/fakeData/errors';
 
 import { ErrorsBoard } from 'src/features/TestingErrors/components/ErrorsBoard';
 
 import './ErrorsBoardPage.style.scss';
 
 export const ErrorsBoardPage = () => {
+  const history = useHistory();
+
   return (
     <div className={'errorsBoardPage'}>
-      <ErrorsBoard errors={[]} />
+      <ErrorsBoard
+        errors={FakeErrors}
+        onErrorSelected={
+          (errorId) => history.push(`/error/${errorId}`, {})
+        }
+      />
     </div>
   )
 }

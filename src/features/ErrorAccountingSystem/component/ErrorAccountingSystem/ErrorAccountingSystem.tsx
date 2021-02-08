@@ -32,12 +32,10 @@ export const ErrorAccountingSystem = (props: ErrorAccountingSystemProps) => {
 
               <div className={'links'}>
                 <RouterButtonLink label='Login' to='/' />
-                <RouterButtonLink label='Error form' to='/error' />
+                <RouterButtonLink label='Create error' to='/error' />
                 <RouterButtonLink label='Errors board' to='/dashboard' />
               </div>
             </div>
-
-            <hr />
 
             <Switch>
               <Route exact path="/">

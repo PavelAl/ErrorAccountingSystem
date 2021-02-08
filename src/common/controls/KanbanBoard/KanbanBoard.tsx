@@ -6,7 +6,7 @@ import { KanbanBoardProps } from './KanbanBoard.types';
 import './KanbanBoard.styles.scss';
 
 export const KanbanBoard = <T,>(props: KanbanBoardProps<T>) => {
-  const { columns } = props;
+  const { columns, onKanbanClick } = props;
 
   return (
     <div className={'kanbanBoard'}>
@@ -20,16 +20,21 @@ export const KanbanBoard = <T,>(props: KanbanBoardProps<T>) => {
                 {column.title}
               </div>
 
-              {
-                column.kanbans.map((kanban) => {
-                  return (
-                    <Kanban
-                      key={kanban.key}
-                      kanban={kanban}
-                    />
-                  );
-                })
-              }
+              <div className={'kanbans'}>
+                {
+                  column.kanbans.map((kanban) => {
+                    return (
+                      <Kanban
+                        key={kanban.key}
+                        kanban={kanban}
+                        onClick={() => {
+                          onKanbanClick(kanban);
+                        }}
+                      />
+                    );
+                  })
+                }
+              </div>
             </div>
           )
         })

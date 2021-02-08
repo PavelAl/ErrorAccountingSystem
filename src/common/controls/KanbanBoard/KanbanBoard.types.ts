@@ -1,5 +1,6 @@
 export interface KanbanBoardProps<T> {
   columns: KanbanBoardColumn<T>[];
+  onKanbanClick: (kanban: Kanban) => void;
 }
 
 export interface KanbanBoardColumn<T> {
