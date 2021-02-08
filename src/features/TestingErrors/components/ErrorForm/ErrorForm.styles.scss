@@ -1,0 +1,9 @@
+.errorForm {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

@@ -1,8 +1,18 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+
+import { initializeIcons } from '@fluentui/react';
 import reportWebVitals from './reportWebVitals';
+
+import { App } from './features/App';
+
+import './index.css';
+
+initializeIcons();
 
 ReactDOM.render(
   <React.StrictMode>

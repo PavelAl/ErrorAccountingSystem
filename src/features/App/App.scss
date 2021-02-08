@@ -1,0 +1,13 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+
+  .canvas {
+    margin: 0 auto;
+    width: 80%;
+    height: 100vh;
+    // padding: 10vh 0;
+    background-color: white;
+    box-sizing: border-box;
+  }
+}

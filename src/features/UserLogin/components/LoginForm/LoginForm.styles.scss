@@ -1,0 +1,14 @@
+.loginForm {
+  border: 1px solid;
+  padding: 20px;
+  width: 300px;
+
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
