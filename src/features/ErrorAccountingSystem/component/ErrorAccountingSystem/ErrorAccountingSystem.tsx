@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 
 import { ErrorFormPage, ErrorsBoardPage, LoginFormPage } from '../../pages';
@@ -13,6 +14,7 @@ import { AuthContext } from 'src/common/context/authContext';
 
 import { ErrorAccountingSystemProps } from './ErrorAccountingSystem.types';
 import './ErrorAccountingSystem.style.scss';
+import { RouterButtonLink } from 'src/common/controls/KanbanBoard/controls/RouterButtonLink';
 
 export const ErrorAccountingSystem = (props: ErrorAccountingSystemProps) => {
   const [user, setUser] = React.useState<User>({
@@ -29,9 +31,9 @@ export const ErrorAccountingSystem = (props: ErrorAccountingSystemProps) => {
               <div>{user.name}</div>
 
               <div className={'links'}>
-                <Link to="/">Login</Link>
-                <Link to="/error">Error form</Link>
-                <Link to="/dashboard">Errors board</Link>
+                <RouterButtonLink label='Login' to='/' />
+                <RouterButtonLink label='Error form' to='/error' />
+                <RouterButtonLink label='Errors board' to='/dashboard' />
               </div>
             </div>
 
