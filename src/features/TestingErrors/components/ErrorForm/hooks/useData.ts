@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "src/common/auth";
 
-import { AuthContext } from "src/common/context/authContext";
-
-import { TestingError, ErrorStatus, ErrorPriority, ErrorSeverity, User } from "src/common/types"
+import { TestingError, ErrorStatus, ErrorPriority, ErrorSeverity, User, UserRole } from "src/common/types"
 
 import { ErrorFormProps } from "../ErrorForm.types"
 
 export const useErrorFormData = (props: ErrorFormProps) => {
   const { errorId } = props;
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const [error, setError] = useState<TestingError>(createNewError(user));
 
@@ -19,7 +18,7 @@ export const useErrorFormData = (props: ErrorFormProps) => {
   return { error, setError }
 }
 
-function createNewError(user: User): TestingError {
+function createNewError(user?: User): TestingError {
   return {
     id: 'GUID',
     date: new Date().toISOString(),
@@ -28,6 +27,10 @@ function createNewError(user: User): TestingError {
     status: ErrorStatus.new,
     priority: ErrorPriority.low,
     severity: ErrorSeverity.minor,
-    user
+    user: user ?? {
+      id: 0,
+      name: '',
+      role: UserRole.user
+    }
   }
 }

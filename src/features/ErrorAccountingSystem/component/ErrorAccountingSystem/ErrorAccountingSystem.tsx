@@ -2,36 +2,28 @@ import * as React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  NavLink
+  Route
 } from "react-router-dom";
 
 import { ErrorFormPage, ErrorsBoardPage, LoginFormPage } from '../../pages';
 
-import { User, UserRole } from 'src/common/types';
-import { AuthContext } from 'src/common/context/authContext';
+import { RouterButtonLink } from 'src/common/controls';
+
+import { AuthProvider, AuthButton, PrivateRoute } from 'src/common/auth';
 
 import { ErrorAccountingSystemProps } from './ErrorAccountingSystem.types';
 import './ErrorAccountingSystem.style.scss';
-import { RouterButtonLink } from 'src/common/controls/KanbanBoard/controls/RouterButtonLink';
 
 export const ErrorAccountingSystem = (props: ErrorAccountingSystemProps) => {
-  const [user, setUser] = React.useState<User>({
-    name: '',
-    role: UserRole.admin
-  });
-
   return (
     <div className={'errorAccountingSystem'}>
-      <AuthContext.Provider value={{ user, setUser }}>
+      <AuthProvider>
         <Router>
           <div>
             <div className={'navigation'}>
-              <div>{user.name}</div>
+              <AuthButton />
 
               <div className={'links'}>
-                <RouterButtonLink label='Login' to='/' />
                 <RouterButtonLink label='Create error' to='/error' />
                 <RouterButtonLink label='Errors board' to='/dashboard' />
               </div>
@@ -42,17 +34,17 @@ export const ErrorAccountingSystem = (props: ErrorAccountingSystemProps) => {
                 <LoginFormPage />
               </Route>
 
-              <Route path="/error">
+              <PrivateRoute path="/error">
                 <ErrorFormPage />
-              </Route>
+              </PrivateRoute>
 
-              <Route path="/dashboard">
+              <PrivateRoute path="/dashboard">
                 <ErrorsBoardPage />
-              </Route>
+              </PrivateRoute>
             </Switch>
           </div>
         </Router>
-      </AuthContext.Provider>
+      </AuthProvider>
     </div>
   )
 }

@@ -10,6 +10,7 @@ export const FakeErrors: TestingError[] = [
     priority: ErrorPriority.low,
     severity: ErrorSeverity.minor,
     user: {
+      id: 1,
       name: 'User 1',
       role: UserRole.admin
     }
@@ -23,6 +24,7 @@ export const FakeErrors: TestingError[] = [
     priority: ErrorPriority.low,
     severity: ErrorSeverity.minor,
     user: {
+      id: 2,
       name: 'User 2',
       role: UserRole.admin
     }
@@ -36,6 +38,7 @@ export const FakeErrors: TestingError[] = [
     priority: ErrorPriority.low,
     severity: ErrorSeverity.minor,
     user: {
+      id: 3,
       name: 'User 3',
       role: UserRole.admin
     }
@@ -49,6 +52,7 @@ export const FakeErrors: TestingError[] = [
     priority: ErrorPriority.low,
     severity: ErrorSeverity.minor,
     user: {
+      id: 4,
       name: 'User 4',
       role: UserRole.admin
     }

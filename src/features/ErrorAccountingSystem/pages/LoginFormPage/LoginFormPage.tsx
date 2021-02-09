@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import { LoginForm } from 'src/features/UserLogin/components/LoginForm';
-import { useAuth } from './hooks';
+import { useLogin } from './hooks';
 
 import './LoginFormPage.style.scss';
 
 export const LoginFormPage = () => {
-  const { LoginUser } = useAuth();
+  const { LoginUser } = useLogin();
 
   return (
     <div className={'loginFormPage'}>
