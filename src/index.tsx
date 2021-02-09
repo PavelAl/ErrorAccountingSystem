@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import { initializeIcons } from '@fluentui/react';
 import reportWebVitals from './reportWebVitals';
 
-import { App } from './features/App';
+import { App } from './App';
 
 import './index.css';
 

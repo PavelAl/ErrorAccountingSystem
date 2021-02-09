@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ErrorAccountingSystem } from '../ErrorAccountingSystem/component/ErrorAccountingSystem';
+import { ErrorAccountingSystem } from '../features/ErrorAccountingSystem/component';
 
 import './App.scss';
 

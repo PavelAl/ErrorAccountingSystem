@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #bbb;
+  margin-bottom: 10px;
+  min-height: 32px;
+
+  .links {
+    display: flex;
+
+    > *:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}

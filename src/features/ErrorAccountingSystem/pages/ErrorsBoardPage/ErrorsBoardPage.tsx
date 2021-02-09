@@ -4,7 +4,7 @@ import { FakeErrors } from 'src/common/fakeData/errors';
 
 import { ErrorsBoard } from 'src/features/TestingErrors/components/ErrorsBoard';
 
-import './ErrorsBoardPage.style.scss';
+import './ErrorsBoardPage.styles.scss';
 
 export const ErrorsBoardPage = () => {
   const history = useHistory();
