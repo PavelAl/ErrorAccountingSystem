@@ -8,7 +8,6 @@ import {
 import { ErrorFormPage, ErrorsBoardPage, LoginFormPage } from '../../pages';
 
 import { RouterButtonLink } from 'src/common/controls';
-
 import { AuthProvider, AuthButton, PrivateRoute } from 'src/common/auth';
 
 import { ErrorAccountingSystemProps } from './ErrorAccountingSystem.types';
@@ -34,7 +33,7 @@ export const ErrorAccountingSystem = (props: ErrorAccountingSystemProps) => {
                 <LoginFormPage />
               </Route>
 
-              <PrivateRoute path="/error">
+              <PrivateRoute path={["/error/:errorId", '/error']}>
                 <ErrorFormPage />
               </PrivateRoute>
 

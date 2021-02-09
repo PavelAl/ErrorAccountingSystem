@@ -12,22 +12,22 @@ export interface TestingError {
 }
 
 export enum ErrorStatus {
-  new,
-  open,
-  solved,
-  closed
+  new = 'new',
+  open = 'open',
+  solved = 'solved',
+  closed = 'closed'
 }
 
 export enum ErrorPriority {
-  low,
-  medium,
-  high,
-  veryHigh
+  low = 'low',
+  medium = 'medium',
+  high = 'high',
+  veryHigh = 'veryHigh'
 }
 
 export enum ErrorSeverity {
-  critical,
-  significant,
-  minor,
-  changeRequest
+  critical = 'critical',
+  significant = 'significant',
+  minor = 'minor',
+  changeRequest = 'changeRequest'
 }

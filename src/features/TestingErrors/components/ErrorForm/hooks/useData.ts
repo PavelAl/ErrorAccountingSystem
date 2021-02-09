@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "src/common/auth";
+import { FakeErrors } from "src/common/fakeData/errors";
 
 import { TestingError, ErrorStatus, ErrorPriority, ErrorSeverity, User, UserRole } from "src/common/types"
 
@@ -12,7 +13,13 @@ export const useErrorFormData = (props: ErrorFormProps) => {
   const [error, setError] = useState<TestingError>(createNewError(user));
 
   useEffect(() => {
-    setError(createNewError(user));
+    if (typeof errorId !== 'undefined') {
+      const selectedError = FakeErrors.find((error) => error.id === errorId) ?? createNewError(user);
+      
+      setError(selectedError);
+    } else {
+      setError(createNewError(user));
+    }
   }, [errorId, user])
 
   return { error, setError }
@@ -22,7 +29,7 @@ function createNewError(user?: User): TestingError {
   return {
     id: 'GUID',
     date: new Date().toISOString(),
-    shortDescription: 'string',
+    shortDescription: '',
     fullDescription: '',
     status: ErrorStatus.new,
     priority: ErrorPriority.low,
