@@ -33,7 +33,3 @@ export function addCommentToNewTask(task: Task, comment: string): Task {
     ]
   };
 }
-
-export function createNewHistoryRecord() {
-
-}

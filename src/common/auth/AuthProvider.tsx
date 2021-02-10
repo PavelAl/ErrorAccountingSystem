@@ -4,6 +4,7 @@ import { useState } from "react";
 import { User } from "../types";
 import { AuthContext } from "./context";
 import { Authorization } from "./Auth.types";
+import { ServicesContext } from "../context/ServicesContext";
 
 export const AuthProvider: React.FunctionComponent = ({ children }) => {
   const auth = useProvideAuth();
@@ -14,13 +15,20 @@ export const AuthProvider: React.FunctionComponent = ({ children }) => {
 function useProvideAuth(): Authorization {
   const [user, setUser] = useState<User>();
 
-  const signin = (login: string, password: string, cb: () => void,) => {
-    setUser({
-      id: 1,
-      name: login
-    });
+  const { authService } = React.useContext(ServicesContext);
 
-    cb();
+  const signin = (login: string, password: string, cb: () => void,) => {
+    const user = authService.authorizeUser(login, password);
+    if (user) {
+      setUser({
+        id: 1,
+        name: login
+      });
+
+      cb();
+    } else {
+      alert('No such user');
+    }
   };
 
   const signout = (cb: () => void) => {

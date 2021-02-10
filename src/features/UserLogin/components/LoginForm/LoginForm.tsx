@@ -11,8 +11,8 @@ interface Props {
 export const LoginForm = (props: Props) => {
   const { onLogin } = props;
 
-  const [login, setLogin] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [login, setLogin] = React.useState('User 1');
+  const [password, setPassword] = React.useState('user1');
 
   return (
     <div className={'loginForm'}>
