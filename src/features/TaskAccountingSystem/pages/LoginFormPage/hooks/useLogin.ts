@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 
-import { useAuth } from "src/common/auth";
+import { useAuth } from "src/features/Authorization";
 
 export const useLogin = () => {
   const { signin } = useAuth();

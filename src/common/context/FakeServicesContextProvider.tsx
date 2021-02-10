@@ -1,5 +1,6 @@
+import { FakeAuthService } from "src/features/Authorization/service/FakeAuthService";
+
 import { FakeTasksService } from "src/features/Task/services";
-import { FakeAuthService } from "../auth/service/FakeAuthService";
 import { ServicesContext } from "./ServicesContext";
 
 const tasksService = new FakeTasksService();

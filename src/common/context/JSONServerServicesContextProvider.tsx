@@ -1,5 +1,5 @@
+import { FakeAuthService } from "src/features/Authorization/service/FakeAuthService";
 import { JSONServiceTasksService } from "src/features/Task/services/JSONServiceTaskService";
-import { FakeAuthService } from "../auth/service/FakeAuthService";
 import { ServicesContext } from "./ServicesContext";
 
 const tasksService = new JSONServiceTasksService(`http://localhost:5000`);

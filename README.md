@@ -1,47 +1,45 @@
 # Cистема учета ошибок
- 
-# Пререквизиты
+
+## Пререквизиты
+
 - На запускаемом компьютере должен быть доступен npm версии 6 и более. Используемая при разработке версия - 6.4.1.
-- Для запуска
-## Available Scripts
+- Для запуска JSON-server необходимо выполнить команду npm install -g json-server
+- В самом репозитории необходимо выполнить npm install
 
-In the project directory, you can run:
+## Запуск приложения
 
-### `npm start`
+Приложение запускается коммандой npm run dev
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Используемые технологии
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Create react app
+- Typescript
+- React
+- Office ui fabric(fluent ui)
+- react-router
+- json-server
 
-### `npm test`
+## Архитектура решения
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- src - основная папка с исхондым кодом
+- db.json - файл с данными для JSON-сервера
 
-### `npm run build`
+## Папка src
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- App - папка с приложением, на котором располагается система учета ошибок
+- common - общие для всего приложения сущности
+- features - код приложения, разбитый на feature
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Папка common
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- context - контекст, который должен быть развернут на уровне всего приложения
+- controls - react - контролы
+- fakeData - данные, которые используются в fake-сервисах
+- types - описание сущностей системы и некоторые функции для работы с ними
+- utils - небольшие функции для общего пользования
 
-### `npm run eject`
+## Папка features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- TaskAccountingSystem - основной компонент системы учета ошибок
+- Task - компоненты и сервисы, используемые для работы с задачами
+- Authorization - компоненты, сервисы, контекст, необходимые для реализации авторизации

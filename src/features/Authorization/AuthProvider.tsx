@@ -1,10 +1,11 @@
 import * as React from "react";
 import { useState } from "react";
 
-import { User } from "../types";
+import { User } from "src/common/types";
+import { ServicesContext } from "src/common/context/ServicesContext";
+
 import { AuthContext } from "./context";
 import { Authorization } from "./Auth.types";
-import { ServicesContext } from "../context/ServicesContext";
 
 export const AuthProvider: React.FunctionComponent = ({ children }) => {
   const auth = useProvideAuth();

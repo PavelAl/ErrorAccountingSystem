@@ -1,5 +1,5 @@
-import { AuthButton, useAuth } from "src/common/auth"
 import { RouterButtonLink } from "src/common/controls";
+import { AuthButton, useAuth } from "src/features/Authorization";
 
 import './NavigationLinks.styles.scss'
 

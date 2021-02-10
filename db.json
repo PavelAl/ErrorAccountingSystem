@@ -30,7 +30,7 @@
       "date": "2021-02-10T12:38:31.984Z",
       "shortDescription": "Task 2",
       "fullDescription": "Long description on error 2 Long description on error 2 Long description on error 2 Long description on error 2 Long description on error 2",
-      "status": "solved",
+      "status": "open",
       "priority": "high",
       "severity": "significant",
       "user": {
@@ -63,6 +63,16 @@
           "date": "2021-02-10T12:39:39.599Z",
           "action": "solving",
           "comment": "qweqw",
+          "user": {
+            "id": 1,
+            "name": "User 1"
+          }
+        },
+        {
+          "taskId": "2",
+          "date": "2021-02-10T13:03:31.119Z",
+          "action": "opening",
+          "comment": "qweeqwe",
           "user": {
             "id": 1,
             "name": "User 1"

@@ -1,4 +1,4 @@
-import { User } from "../types";
+import { User } from "src/common/types";
 
 export interface Authorization {
   user?: User,

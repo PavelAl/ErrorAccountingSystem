@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { LoginForm } from 'src/features/UserLogin/components/LoginForm';
+import { LoginForm } from 'src/features/Authorization/components/LoginForm';
 import { useLogin } from './hooks';
 
 import './LoginFormPage.styles.scss';

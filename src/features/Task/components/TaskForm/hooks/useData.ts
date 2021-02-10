@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "src/common/auth";
 
+import { useAuth } from "src/features/Authorization";
 import { TaskChangeAction, Task } from "src/common/types"
 
 import { TaskFormProps } from "../TaskForm.types"

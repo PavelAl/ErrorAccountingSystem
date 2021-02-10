@@ -7,7 +7,7 @@ import {
 
 import { TaskFormPage, TasksBoardPage, LoginFormPage } from '../pages';
 
-import { AuthProvider, PrivateRoute } from 'src/common/auth';
+import { AuthProvider, PrivateRoute } from 'src/features/Authorization';
 
 import { NavigationLinks } from '../controls';
 

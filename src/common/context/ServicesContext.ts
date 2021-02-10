@@ -1,10 +1,11 @@
 import { createContext } from "react";
 
+import { AuthService } from "src/features/Authorization/service/AuthService";
+import { FakeAuthService } from "src/features/Authorization/service/FakeAuthService";
+
 import { TasksService } from "src/features/Task/services";
 import { FakeTasksService } from "src/features/Task/services";
 
-import { AuthService } from "../auth/service/AuthService";
-import { FakeAuthService } from "../auth/service/FakeAuthService";
 
 interface ServicesContextValue {
   authService: AuthService;
