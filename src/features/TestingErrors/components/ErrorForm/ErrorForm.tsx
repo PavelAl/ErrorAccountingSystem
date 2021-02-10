@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { NewErrorForm, ViewErrorForm } from './controls';
+import { NewForm, ViewForm } from './forms';
 import { useErrorFormData } from './hooks';
 
 import { ErrorFormProps } from './ErrorForm.types';
@@ -15,8 +15,8 @@ export const ErrorForm = (props: ErrorFormProps) => {
     <div className={'errorForm'}>
       {
         errorId
-          ? <ViewErrorForm error={error} />
-          : <NewErrorForm error={error} setError={setError} />
+          ? <ViewForm error={error} />
+          : <NewForm error={error} setError={setError} />
       }
     </div>
   )

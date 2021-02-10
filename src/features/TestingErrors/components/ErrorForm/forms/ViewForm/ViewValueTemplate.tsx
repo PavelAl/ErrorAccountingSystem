@@ -7,7 +7,7 @@ interface Props {
   value: string;
 }
 
-export const ErrorValueView = (props: Props) => {
+export const ViewValueTemplate = (props: Props) => {
   const { label, value } = props;
 
   return (

@@ -9,11 +9,11 @@ interface Props {
   setError: (newError: TestingError) => void;
 }
 
-export const NewErrorForm = (props: Props) => {
+export const NewForm = (props: Props) => {
   const { error, setError } = props;
 
   return (
-    <div className={'errorForm'}>
+    <div className={'newForm'}>
       <TextField
         label={'Short description'}
         value={error.shortDescription}

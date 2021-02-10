@@ -15,7 +15,7 @@ export const useErrorFormData = (props: ErrorFormProps) => {
   useEffect(() => {
     if (typeof errorId !== 'undefined') {
       const selectedError = FakeErrors.find((error) => error.id === errorId) ?? createNewError(user);
-      
+
       setError(selectedError);
     } else {
       setError(createNewError(user));
@@ -38,6 +38,7 @@ function createNewError(user?: User): TestingError {
       id: 0,
       name: '',
       role: UserRole.user
-    }
+    },
+    history: []
   }
 }

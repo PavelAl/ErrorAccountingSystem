@@ -1,3 +1,4 @@
+import { ErrorHistoryRecord } from "./ErrorHistoryRecord";
 import { User } from "./User";
 
 export interface TestingError {
@@ -9,6 +10,7 @@ export interface TestingError {
   priority: ErrorPriority;
   severity: ErrorSeverity;
   user: User;
+  history: ErrorHistoryRecord[];
 }
 
 export enum ErrorStatus {

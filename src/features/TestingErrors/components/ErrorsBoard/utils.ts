@@ -18,10 +18,12 @@ export const getErrorsByStatus = (errors: TestingError[], status: ErrorStatus): 
 }
 
 export const errorToKanban = (error: TestingError): Kanban => {
+  const description = error.fullDescription.length > 100 ? error.fullDescription.slice(0, 97) + '...' : error.fullDescription;
+
   return {
     key: error.id,
-    title: error.fullDescription,
-    description: error.shortDescription,
+    title: error.shortDescription,
+    description,
     type: errorStatusToKanbanType(error.status)
   }
 }

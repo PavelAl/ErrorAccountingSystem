@@ -13,10 +13,12 @@ interface Props {
 }
 
 export const ErrorHistory = (props: Props) => {
+  const { records } = props;
+
   return (
     <div className={'errorsHistory'}>
       <ShimmeredDetailsList
-        items={[]}
+        items={records}
         columns={errorsHistoryColumns}
         shimmerLines={4}
         selectionMode={SelectionMode.none}

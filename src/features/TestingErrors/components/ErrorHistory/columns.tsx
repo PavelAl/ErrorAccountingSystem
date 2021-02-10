@@ -28,6 +28,7 @@ export const errorsHistoryColumns: IColumn[] = [
     minWidth: 250,
     maxWidth: 250,
     data: 'string',
+    onRender: (item: ErrorHistoryRecord) => <div>{item.user.name}</div>
   },
   {
     key: 'comment',
@@ -35,5 +36,6 @@ export const errorsHistoryColumns: IColumn[] = [
     fieldName: 'comment',
     minWidth: 210,
     data: 'string',
+    onRender: (item: ErrorHistoryRecord) => <div className={'record-comment'}>{item.comment}</div>
   }
 ]

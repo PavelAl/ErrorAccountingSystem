@@ -9,8 +9,8 @@ export interface ErrorHistoryRecord {
 }
 
 export enum ErrorHistoryRecordAction {
-  entering,
-  opening,
-  deciding,
-  closing
+  entering = 'entering',
+  opening = 'opening',
+  deciding = 'deciding',
+  closing = 'closing'
 }
