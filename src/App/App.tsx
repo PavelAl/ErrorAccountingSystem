@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { FakeServicesContextProvider } from 'src/common/context/FakeServicesContextProvider';
+import { JSONServerServicesContextProvider } from 'src/common/context/JSONServerServicesContextProvider';
 
 import { TaskAccountingSystem } from '../features/TaskAccountingSystem/component';
 
@@ -10,9 +10,9 @@ export function App() {
   return (
     <div className="App">
       <div className='canvas'>
-        <FakeServicesContextProvider>
+        <JSONServerServicesContextProvider>
           <TaskAccountingSystem />
-        </FakeServicesContextProvider>
+        </JSONServerServicesContextProvider>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ export const useTaskFormData = (props: TaskFormProps) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(taskId);
     (async () => {
       if (typeof taskId !== 'undefined') {
         const selectedTask = await tasksService.getTaskById(taskId);

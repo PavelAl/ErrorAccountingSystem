@@ -132,3 +132,5 @@ export const FakeTasks: Task[] = [
     ]
   }
 ]
+
+console.log(JSON.stringify(FakeTasks));

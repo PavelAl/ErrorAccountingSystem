@@ -1,11 +1,11 @@
-import { FakeTasksService } from "src/features/Task/services";
+import { JSONServiceTasksService } from "src/features/Task/services/JSONServiceTaskService";
 import { FakeAuthService } from "../auth/service/FakeAuthService";
 import { ServicesContext } from "./ServicesContext";
 
-const tasksService = new FakeTasksService();
+const tasksService = new JSONServiceTasksService(`http://localhost:5000`);
 const authService = new FakeAuthService();
 
-export const FakeServicesContextProvider: React.FunctionComponent = ({ children }) => {
+export const JSONServerServicesContextProvider: React.FunctionComponent = ({ children }) => {
   return (
     <ServicesContext.Provider
       value={{

@@ -20,6 +20,11 @@ export const NewForm = (props: Props) => {
   const [task, setTask] = React.useState(propsTask);
   const [comment, setComment] = React.useState('');
 
+  React.useEffect(() => {
+    setTask(propsTask)
+    setComment('');
+  }, [propsTask]);
+
   return (
     <div className={'taskNewForm'}>
       <TextField

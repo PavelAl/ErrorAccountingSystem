@@ -20,7 +20,7 @@ export const TaskForm = (props: TaskFormProps) => {
   const onCancel = () => history.goBack();
 
   if (isLoading && typeof task === 'undefined') return <Spinner size={SpinnerSize.large} label={'Loading...'} />
-
+  
   return (
     <div className={'taskForm'}>
       {
@@ -41,7 +41,6 @@ export const TaskForm = (props: TaskFormProps) => {
               task={task as Task}
               onCreate={(task, comment) => {
                 onCreateTask(task, comment)
-                alert('Task status changed');
                 onCancel();
               }}
               onCancel={onCancel}
