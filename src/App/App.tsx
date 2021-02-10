@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { ErrorAccountingSystem } from '../features/ErrorAccountingSystem/component';
+import { FakeServicesContextProvider } from 'src/common/context/FakeServicesContextProvider';
+
+import { TaskAccountingSystem } from '../features/TaskAccountingSystem/component';
 
 import './App.scss';
 
@@ -8,7 +10,9 @@ export function App() {
   return (
     <div className="App">
       <div className='canvas'>
-        <ErrorAccountingSystem />
+        <FakeServicesContextProvider>
+          <TaskAccountingSystem />
+        </FakeServicesContextProvider>
       </div>
     </div>
   );

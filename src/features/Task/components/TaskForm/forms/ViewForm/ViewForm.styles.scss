@@ -1,0 +1,13 @@
+.taskViewForm {
+  .viewFormToolbar {
+    display: flex;
+    
+    > *:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
