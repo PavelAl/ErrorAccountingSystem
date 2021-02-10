@@ -3,17 +3,24 @@ import * as React from 'react';
 import { Dropdown, TextField } from '@fluentui/react';
 
 import { ErrorPriority, ErrorSeverity, TestingError } from 'src/common/types';
+import { NewFormToolbar } from './controls';
+
+import './NewForm.styles.scss';
 
 interface Props {
   error: TestingError;
-  setError: (newError: TestingError) => void;
+  onCreate: (error: TestingError, comment: string) => void;
+  onCancel: () => void;
 }
 
 export const NewForm = (props: Props) => {
-  const { error, setError } = props;
+  const { error: propsError, onCreate, onCancel } = props;
+
+  const [error, setError] = React.useState(propsError);
+  const [comment, setComment] = React.useState('');
 
   return (
-    <div className={'newForm'}>
+    <div className={'errorNewForm'}>
       <TextField
         label={'Short description'}
         value={error.shortDescription}
@@ -22,6 +29,7 @@ export const NewForm = (props: Props) => {
 
           setError({ ...error, shortDescription });
         }}
+        required={true}
       />
 
       <TextField
@@ -33,6 +41,7 @@ export const NewForm = (props: Props) => {
           setError({ ...error, fullDescription });
         }}
         multiline={true}
+        required={true}
       />
 
       <Dropdown
@@ -66,6 +75,28 @@ export const NewForm = (props: Props) => {
           setError({ ...error, severity })
         }}
       />
+
+      <TextField
+        label={'Comment'}
+        value={comment}
+        onChange={(e, newValue) => {
+          const newComment: string = newValue ?? '';
+
+          setComment(newComment);
+        }}
+        multiline={true}
+      />
+
+      <NewFormToolbar
+        onCreate={() => onCreate(error, comment)}
+        onCancel={onCancel}
+        isDisabled={!errorIsValid(error)}
+        isLoading={false}
+      />
     </div>
   )
+}
+
+function errorIsValid(error: TestingError) {
+  return error.shortDescription.length > 0 && error.fullDescription.length > 0
 }

@@ -1,4 +1,4 @@
-import { ErrorHistoryRecordAction, ErrorPriority, ErrorSeverity, ErrorStatus, TestingError, UserRole } from "../types";
+import { ErrorHistoryRecordAction, ErrorPriority, ErrorSeverity, ErrorStatus, TestingError } from "../types";
 
 export const FakeErrors: TestingError[] = [
   {
@@ -11,8 +11,7 @@ export const FakeErrors: TestingError[] = [
     severity: ErrorSeverity.minor,
     user: {
       id: 1,
-      name: 'User 1',
-      role: UserRole.admin
+      name: 'User 1'
     },
     history: [
       {
@@ -22,8 +21,7 @@ export const FakeErrors: TestingError[] = [
         comment: '',
         user: {
           id: 1,
-          name: 'User 1',
-          role: UserRole.admin
+          name: 'User 1'
         }
       }
     ]
@@ -38,8 +36,7 @@ export const FakeErrors: TestingError[] = [
     severity: ErrorSeverity.significant,
     user: {
       id: 2,
-      name: 'User 2',
-      role: UserRole.admin
+      name: 'User 2'
     },
     history: [
       {
@@ -49,19 +46,17 @@ export const FakeErrors: TestingError[] = [
         comment: '',
         user: {
           id: 2,
-          name: 'User 2',
-          role: UserRole.user
+          name: 'User 2'
         }
       },
       {
-        action: ErrorHistoryRecordAction.entering,
+        action: ErrorHistoryRecordAction.opening,
         date: new Date().toISOString(),
         errorId: '2',
         comment: 'Long description on error 2 Long description on error 2 Long description on error 2 Long description on error 2 Long description on error 2',
         user: {
           id: 3,
-          name: 'User 3',
-          role: UserRole.user
+          name: 'User 3'
         }
       }
     ]
@@ -76,8 +71,7 @@ export const FakeErrors: TestingError[] = [
     severity: ErrorSeverity.critical,
     user: {
       id: 3,
-      name: 'User 3',
-      role: UserRole.user
+      name: 'User 3'
     },
     history: [
       {
@@ -87,8 +81,27 @@ export const FakeErrors: TestingError[] = [
         comment: '',
         user: {
           id: 3,
-          name: 'User 3',
-          role: UserRole.user
+          name: 'User 3'
+        }
+      },
+      {
+        action: ErrorHistoryRecordAction.opening,
+        date: new Date().toISOString(),
+        errorId: '3',
+        comment: '',
+        user: {
+          id: 3,
+          name: 'User 3'
+        }
+      },
+      {
+        action: ErrorHistoryRecordAction.solving,
+        date: new Date().toISOString(),
+        errorId: '3',
+        comment: '',
+        user: {
+          id: 3,
+          name: 'User 3'
         }
       }
     ]
@@ -103,8 +116,7 @@ export const FakeErrors: TestingError[] = [
     severity: ErrorSeverity.changeRequest,
     user: {
       id: 4,
-      name: 'User 4',
-      role: UserRole.admin
+      name: 'User 4'
     },
     history: [
       {
@@ -114,8 +126,7 @@ export const FakeErrors: TestingError[] = [
         comment: '',
         user: {
           id: 4,
-          name: 'User 4',
-          role: UserRole.user
+          name: 'User 4'
         }
       }
     ]

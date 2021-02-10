@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "src/common/auth";
 import { FakeErrors } from "src/common/fakeData/errors";
 
-import { TestingError, ErrorStatus, ErrorPriority, ErrorSeverity, User, UserRole } from "src/common/types"
+import { TestingError, ErrorStatus, ErrorPriority, ErrorSeverity, User } from "src/common/types"
 
 import { ErrorFormProps } from "../ErrorForm.types"
 
@@ -36,8 +36,7 @@ function createNewError(user?: User): TestingError {
     severity: ErrorSeverity.minor,
     user: user ?? {
       id: 0,
-      name: '',
-      role: UserRole.user
+      name: ''
     },
     history: []
   }

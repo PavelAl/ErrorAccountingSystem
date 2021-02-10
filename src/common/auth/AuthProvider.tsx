@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 
-import { User, UserRole } from "../types";
+import { User } from "../types";
 import { AuthContext } from "./context";
 import { Authorization } from "./Auth.types";
 
@@ -17,8 +17,7 @@ function useProvideAuth(): Authorization {
   const signin = (login: string, password: string, cb: () => void,) => {
     setUser({
       id: 1,
-      name: login,
-      role: UserRole.admin
+      name: login
     });
 
     cb();

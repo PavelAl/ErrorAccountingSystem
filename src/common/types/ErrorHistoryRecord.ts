@@ -11,6 +11,15 @@ export interface ErrorHistoryRecord {
 export enum ErrorHistoryRecordAction {
   entering = 'entering',
   opening = 'opening',
-  deciding = 'deciding',
+  solving = 'solving',
   closing = 'closing'
+}
+
+export const errorHistoryActionToString = (action: ErrorHistoryRecordAction) => {
+  switch (action) {
+    case (ErrorHistoryRecordAction.entering): return 'Entered';
+    case (ErrorHistoryRecordAction.opening): return 'Opened';
+    case (ErrorHistoryRecordAction.solving): return 'Solved';
+    case (ErrorHistoryRecordAction.closing): return 'Closed';
+  }
 }

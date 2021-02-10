@@ -1,6 +1,6 @@
 import { IColumn } from "@fluentui/react";
 
-import { ErrorHistoryRecord } from "src/common/types/ErrorHistoryRecord";
+import { errorHistoryActionToString, ErrorHistoryRecord } from "src/common/types/ErrorHistoryRecord";
 import { formatDate } from "src/common/utils/formatDate";
 
 export const errorsHistoryColumns: IColumn[] = [
@@ -11,6 +11,7 @@ export const errorsHistoryColumns: IColumn[] = [
     minWidth: 150,
     maxWidth: 150,
     data: 'number',
+    onRender: (record: ErrorHistoryRecord) => <div>{errorHistoryActionToString(record.action)}</div>,
   },
   {
     key: 'date',
@@ -18,7 +19,7 @@ export const errorsHistoryColumns: IColumn[] = [
     fieldName: 'date',
     minWidth: 100,
     maxWidth: 100,
-    onRender: (item: ErrorHistoryRecord) => <div>{formatDate(item.date)}</div>,
+    onRender: (record: ErrorHistoryRecord) => <div>{formatDate(record.date)}</div>,
     data: 'string',
   },
   {
@@ -28,7 +29,7 @@ export const errorsHistoryColumns: IColumn[] = [
     minWidth: 250,
     maxWidth: 250,
     data: 'string',
-    onRender: (item: ErrorHistoryRecord) => <div>{item.user.name}</div>
+    onRender: (record: ErrorHistoryRecord) => <div>{record.user.name}</div>
   },
   {
     key: 'comment',
@@ -36,6 +37,6 @@ export const errorsHistoryColumns: IColumn[] = [
     fieldName: 'comment',
     minWidth: 210,
     data: 'string',
-    onRender: (item: ErrorHistoryRecord) => <div className={'record-comment'}>{item.comment}</div>
+    onRender: (record: ErrorHistoryRecord) => <div className={'record-comment'}>{record.comment}</div>
   }
 ]
